@@ -1,5 +1,8 @@
 package com.library.management.controller;
 
+import java.util.List;
+
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -19,5 +22,10 @@ public class UserController {
     @PostMapping("/users")
     public User addUser(@RequestBody User user){
         return userService.addUser(user);
+    }
+
+    @GetMapping("/users")
+    public List<User> getAllUsers(){
+        return userService.getAllUsers();
     }
 }

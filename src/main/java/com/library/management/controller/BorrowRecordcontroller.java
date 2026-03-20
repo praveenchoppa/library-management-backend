@@ -11,11 +11,11 @@ import com.library.management.entity.BorrowRecord;
 import com.library.management.service.BorrowRecordService;
 
 @RestController
-public class BorrowRecordcontroller {
+public class BorrowRecordController {
     
     private final BorrowRecordService borrowRecordService;
 
-    public BorrowRecordcontroller(BorrowRecordService borrowRecordService){
+    public BorrowRecordController(BorrowRecordService borrowRecordService){
         this.borrowRecordService = borrowRecordService;
     }
 
@@ -32,5 +32,10 @@ public class BorrowRecordcontroller {
     @GetMapping("/borrow/history/{userId}")
     public List<BorrowRecord> getBorrowHistory(@PathVariable Long userId){
         return borrowRecordService.getBorrowHistoryByUser(userId);
+    }
+
+    @GetMapping("/borrow-records")
+    public List<BorrowRecord> getAllBorrowRecords(){
+        return borrowRecordService.getAllBorrowRecords();
     }
 }
